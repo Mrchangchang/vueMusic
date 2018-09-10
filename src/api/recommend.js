@@ -2,7 +2,7 @@
  * Created by chang on 2018/6/15.
  */
 import jsonp from './../common/js/jsonp'
-import { commonParams, options} from './config'
+import {commonParams, options} from './config'
 
 export function getRecommend () {
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
