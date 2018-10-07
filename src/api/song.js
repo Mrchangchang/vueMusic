@@ -1,8 +1,8 @@
 /**
  * Created by chang on 2018/9/9.
  */
-import {commonParams, options} from './config'
-import jsonp from './../common/js/jsonp'
+// import {commonParams, options} from './config'
+// import jsonp from './../common/js/jsonp'
 import axios from 'axios'
 
 export function getSongKey (id) {
@@ -25,6 +25,28 @@ export function getSongKey (id) {
     filename: `C400${id}.m4a`,
     guid: 6567709520
   }
+  return axios.get(url, {
+    params: data
+  })
+}
+
+export function getLyric (mid) {
+  const url = '/getSongLyric'
+  let data = Object.assign({}, {
+    // callback: MusicJsonCallback_lrc
+    // callback: 'MusicJsonCallback_lrc',
+    // jsonpCallback: 'MusicJsonCallback_lrc',
+    pcachetime: 1537372106179,
+    songmid: mid,
+    g_tk: 5381,
+    // jsonpCallback: MusicJsonCallback_lrc
+    loginUin: 0,
+    hostUin: 0,
+    format: 'json',
+    inCharset: 'utf8',
+    outCharset: 'utf-8',
+    notice: 0
+  })
   return axios.get(url, {
     params: data
   })

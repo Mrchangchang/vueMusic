@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     _getDetail () {
-      if (!this.singer || !this.singer.id){
+      if (!this.singer || !this.singer.id) {
         history.back()
         return
       }

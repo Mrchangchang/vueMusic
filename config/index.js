@@ -19,6 +19,22 @@ module.exports = {
       '/getSongKey': {
         target: server,
         changeOrigin: true,  //是否跨域
+      },
+      '/getSongLyric': {
+        target: server,
+        changeOrigin: true  //是否跨域
+      },
+      '/getSongList': {
+        target: server,
+        changeOrigin: true  //是否跨域
+      },
+      '/getTopList': {
+        target: server,
+        changeOrigin: true  //是否跨域
+      },
+      '/getTopMusicList': {
+        target: server,
+        changeOrigin: true  //是否跨域
       }
     },
 

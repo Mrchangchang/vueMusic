@@ -1,11 +1,12 @@
 <template>
-    <div class="singer">
-      <list-view :data="singer" @selectIndex="toggleList" @selectItem="selectItem"></list-view>
+    <div class="singer" ref="singer">
+      <list-view :data="singer" @selectIndex="toggleList" @selectItem="selectItem" ref="list"></list-view>
       <router-view></router-view>
     </div>
 </template>
 <script>
 import {getSingerList} from 'api/singer'
+import {playlistMixin} from 'common/js/mixin.js'
 //import {ERR_OK} from 'api/config'
 import Singer from 'common/js/singer'
 import ListView from 'base/listview/listview'
@@ -15,6 +16,7 @@ const HOT_NAME = '热门'
 const HOT_SINGER_LGN = 10
 
 export default {
+  mixins: [playlistMixin],
   data () {
     return {
       singer: {},
@@ -63,7 +65,12 @@ export default {
     },
     ...mapMutations({
       setSinger: 'SET_SINGER'
-    })
+    }),
+    handlePlaylist (playlist) {
+      const bottom = playlist && playlist.length > 0 ? '60px' : ''
+      this.$refs.singer.style.bottom = bottom
+      //      this.$refs.list.refresh()
+    }
   },
   components: {
     ListView

@@ -5,22 +5,22 @@ import {shuffle} from 'common/js/util'
 export const playlistMixin = {
   computed: {
     ...mapGetters([
-      'playlist'
+      'playList'
     ])
   },
   mounted() {
-    this.handlePlaylist(this.playlist)
+    this.handlePlaylist(this.playList)
   },
   activated() {
-    this.handlePlaylist(this.playlist)
+    this.handlePlaylist(this.playList)
   },
   watch: {
-    playlist(newVal) {
+    playList (newVal) {
       this.handlePlaylist(newVal)
     }
   },
   methods: {
-    handlePlaylist() {
+    handlePlaylist () {
       throw new Error('component must implement handlePlaylist method')
     }
   }
@@ -28,7 +28,7 @@ export const playlistMixin = {
 
 export const playerMixin = {
   computed: {
-    iconMode() {
+    iconMode () {
       return this.mode === playMode.sequence ? 'icon-sequence' : this.mode === playMode.loop ? 'icon-loop' : 'icon-random'
     },
     ...mapGetters([
@@ -91,7 +91,7 @@ export const playerMixin = {
 }
 
 export const searchMixin = {
-  data() {
+  data () {
     return {
       query: '',
       refreshDelay: 120
@@ -106,13 +106,13 @@ export const searchMixin = {
     onQueryChange(query) {
       this.query = query
     },
-    blurInput() {
+    blurInput () {
       this.$refs.searchBox.blur()
     },
-    addQuery(query) {
+    addQuery (query) {
       this.$refs.searchBox.setQuery(query)
     },
-    saveSearch() {
+    saveSearch () {
       this.saveSearchHistory(this.query)
     },
     ...mapActions([
