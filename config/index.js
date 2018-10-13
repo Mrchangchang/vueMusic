@@ -35,6 +35,14 @@ module.exports = {
       '/getTopMusicList': {
         target: server,
         changeOrigin: true  //是否跨域
+      },
+      '/getHotKey': {
+        target: server,
+        changeOrigin: true  //是否跨域
+      },
+      '/search': {
+        target: server,
+        changeOrigin: true  //是否跨域
       }
     },
 

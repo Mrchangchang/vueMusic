@@ -123,4 +123,35 @@ router.get('/getTopMusicList', (req, res, next) => {
     res.json(response.data)
   })
 })
+
+router.get('/getHotKey', (req, res) => {
+  'use strict'
+  let url = 'https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg'
+  axios.get(url, {
+    headers: {
+      referer: 'https://y.qq.com/portal/search.html',
+      origin: 'http://evil.com/'
+    },
+    params: req.query
+  }).then(response => {
+    res.json(response.data)
+  }).catch((response) => {
+    res.json(response.data)
+  })
+})
+router.get('/search', (req, res) => {
+  'use strict'
+  let url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
+  axios.get(url, {
+    headers: {
+      referer: 'https://y.qq.com/portal/search.html',
+      origin: 'http://evil.com/'
+    },
+    params: req.query
+  }).then(response => {
+    res.json(response.data)
+  }).catch((response) => {
+    res.json(response.data)
+  })
+})
 module.exports = router

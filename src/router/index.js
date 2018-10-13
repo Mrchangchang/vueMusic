@@ -48,7 +48,7 @@ export default new Router({
     },
     {
       path: '/search',
-      name: 'rank',
+      name: 'search',
       component: Search
     }
   ]
